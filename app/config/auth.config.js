@@ -1,3 +1,3 @@
 module.exports = {
-  secret: "bezkoder-secret-key"
+  secret: "smartengo2-secret-key!need_to_be_changed!"
 };
