@@ -85,3 +85,36 @@ exports.signin = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+exports.updatePassword = (req, res) => {
+  User.findOne({
+    where: {
+      id: req.userId
+    }
+  })
+    .then(user => {
+      if (!user) {
+        return res.status(404).send({ message: "User Not found." });
+      }
+
+      var passwordIsValid = req.body.password && req.body.password.length > 5;
+
+      if (!passwordIsValid) {
+        return res.status(401).send({
+          accessToken: null,
+          message: "Invalid Password!"
+        });
+      }
+     User.update({ password: bcrypt.hashSync(req.body.password, 8) },
+      {
+        where: { id: user.id }
+      }).then(() => {
+        res.status(200).send({
+          message: "Password updated !"
+        });
+      });
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
