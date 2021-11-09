@@ -3,5 +3,5 @@ module.exports = {
   USER: "root",
   PASSWORD: "password_01",
   DB: "smartengo",
-  PORT: 3336,
+  PORT: 3306,
 };
