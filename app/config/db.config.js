@@ -1,7 +1,7 @@
 module.exports = {
-  HOST: ".",
-  USER: "sa",
+  HOST: "localhost",
+  USER: "root",
   PASSWORD: "password_01",
   DB: "smartengo",
-  PORT: 1433,
+  PORT: 3336,
 };

@@ -4,14 +4,10 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
   config.DB,
   config.USER,
-  config.PASSWORD,
-  {
+  config.PASSWORD, {
     "server": config.HOST,
-    "dialect": "mssql",
-    "options": {
-      "port": config.PORT,
-      "trustServerCertificate": true
-    }
+    "dialect": "mysql",
+    "port": config.PORT,
   }
 );
 
